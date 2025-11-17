@@ -29,7 +29,7 @@ public class ArrowGenerator : MonoBehaviour
         cam = Camera.main;
         arrowRend = GetComponent<Renderer>();
 
-        // arrowRend.sortingOrder = 5;
+        arrowRend.sortingOrder = 5;
     }
 
     void Update()
