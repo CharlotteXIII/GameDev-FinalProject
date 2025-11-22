@@ -2409,7 +2409,7 @@ MonoBehaviour:
   Drag: 1
   group: []
   angles: []
-  soldierPrefab: {fileID: 0}
+  soldierPrefab: {fileID: -6326630278724765534, guid: 733604550a468fb4c9d795740f525d2c, type: 3}
   SpreadTime: 0
 --- !u!33 &2084822981
 MeshFilter:
