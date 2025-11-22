@@ -32,30 +32,71 @@ public class ArrowGenerator : MonoBehaviour
         arrowRend.sortingOrder = 5;
     }
 
-    void Update()
+    // void Update()
+    // {
+    //     if(PlayerManager.Instance.Drag)
+    //     {
+    //       GenerateArrow();
+
+    //       var dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
+
+    //       var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+    //       transform.rotation = Quaternion.AngleAxis(angle , Vector3.forward);//rotate arrow
+
+    //       var offset = PlayerManager.Instance.transform.position - transform.position;
+
+    //       stemLength = offset.magnitude;
+
+    //       arrowRend.enabled = true;
+    //     }
+    //     else//mouse up
+    //     {
+    //        stemLength = 0f;
+    //        arrowRend.enabled = false;
+    //     }   
+    // }
+  void Update()
     {
-        if(PlayerManager.Instance.Drag)
+        if (PlayerManager.Instance.Drag)
         {
-          GenerateArrow();
+            arrowRend.enabled = true;
 
-          var dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
+            // 1. หาตำแหน่งเป้าหมาย (วงกลม) และตัวเรา (ลูกศร) ในแบบ World Space
+            Vector3 targetPosition = PlayerManager.Instance.transform.position;
+            Vector3 myPosition = transform.position;
 
-          var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-          transform.rotation = Quaternion.AngleAxis(angle , Vector3.forward);//rotate arrow
+            // 2. หา Vector ทิศทางที่จะชี้ไปหา (World Space)
+            Vector3 direction = targetPosition - myPosition;
 
-          var offset = PlayerManager.Instance.transform.position - transform.position;
+            // 3. หันหน้าไปหาเป้าหมาย
+            // (ใช้ Atan2 เพื่อหาหมุนแกน Z ให้แกน X ชี้ไปหาเป้าหมาย)
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-          stemLength = offset.magnitude;
+            // --- [จุดแก้ปัญหาหลัก] ---
+            
+            // 4. แปลง Vector 'direction' (ที่เป็นระยะจริงในโลก) ให้เป็นระยะใน 'Local Scale' ของลูกศร
+            // คำสั่งนี้จะคำนวณ Scale ของพ่อแม่ให้เสร็จสรรพเลย
+            Vector3 localDirection = transform.InverseTransformVector(direction);
 
-          arrowRend.enabled = true;
+            // 5. ความยาวที่แท้จริงในมุมมองของลูกศรคือ magnitude ของ localDirection นี้
+            float localDistance = localDirection.magnitude;
+
+            // 6. คำนวณก้าน (Stem) โดยลบหัวลูกศรออก
+            stemLength = localDistance - tipLength;
+
+            // ป้องกันค่าติดลบ
+            if (stemLength < 0) stemLength = 0;
+
+            GenerateArrow();
         }
-        else//mouse up
+        else
         {
-           stemLength = 0f;
-           arrowRend.enabled = false;
-        }   
+            stemLength = 0f;
+            arrowRend.enabled = false;
+            GenerateArrow();
+        }
     }
-
     void GenerateArrow()
     {
         //setup
