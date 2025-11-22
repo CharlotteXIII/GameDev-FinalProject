@@ -8,12 +8,13 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance;
     private int Army_No;
     [SerializeField] private TextMeshPro Army_No_txt;
-    private IEnumerator Ie_fill_army;
+    private IEnumerator Ie_fill_army , IeGenerateSoldier;
 
     private Vector3 offset , intialPos;
     [SerializeField] private float nearclip;
     public bool Drag;
     private Camera cam;
+    private Transform enemy;
 
     void Start()
     {
@@ -109,9 +110,56 @@ public class PlayerManager : MonoBehaviour
         {
             Drag = false;
             transform.localPosition = intialPos; //Pointer back to first location
+            
+            if(enemy !=null)
+            {
+                IeGenerateSoldier = GenerateSoldier();
+                StartCoroutine(IeGenerateSoldier);
+
+                Ie_fill_army = FillTheArmy();
+                StartCoroutine(Ie_fill_army);
+            }        
         }
 
     }
 
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("enemy"))
+        {
+            enemy = other.transform;
+        }
+        
+    }
 
+    public List<GameObject> group = new List<GameObject>();
+    [SerializeField] float[] angles;
+    [SerializeField] private Attack soldierPrefab;
+    [SerializeField] private float SpreadTime;
+
+    private IEnumerator GenerateSoldier()
+    {
+        var sildierNo = 0;
+        var PlayerFakeSoldierNo = Army_No;
+        var maxSoldierPerBatch = 3;
+
+        while (sildierNo < PlayerFakeSoldierNo)
+        {
+            var soldierToGenerate = Mathf.Min(maxSoldierPerBatch , PlayerFakeSoldierNo -sildierNo);
+
+            for(int i =0; i < soldierToGenerate; i++)
+            {
+                var newSoldier = Instantiate(soldierPrefab , transform.position , Quaternion.identity);
+                group.Add(newSoldier.gameObject);
+                newSoldier.ExecuteOrder(enemy.transform.position , angles[i]);
+            }
+
+            sildierNo += soldierToGenerate;
+            Army_No = 0;
+            Army_No_txt.text = Army_No.ToString();
+            yield return new WaitForSecondsRealtime(SpreadTime);
+        }
+
+      
+    }
 }
