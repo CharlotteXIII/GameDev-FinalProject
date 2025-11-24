@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
         int counter = 0;
         Army_No = 0;
 
-        while(counter < 10)
+        while(counter < 20)
         {
             counter++;
             Army_No_txt.text = counter.ToString();
