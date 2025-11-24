@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -981401042, guid: 5d1429aecebd93f4692a2f411e344ad6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.34648287, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 262422706}
   - component: {fileID: 262422707}
   - component: {fileID: 262422708}
+  - component: {fileID: 262422709}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -236,8 +237,8 @@ Transform:
   m_GameObject: {fileID: 262422705}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.31722766, w: 0.9483495}
-  m_LocalPosition: {x: -0.23, y: 0.0011261, z: 0}
-  m_LocalScale: {x: 0.2471456, y: 0.2471456, z: 0.2471456}
+  m_LocalPosition: {x: -0.51, y: 0.31, z: 0}
+  m_LocalScale: {x: 0.1863972, y: 0.1863972, z: 0.1863972}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 540459292}
@@ -286,7 +287,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1c270708f9ce86648875cc0dd6fd4579, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -312,8 +313,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArmNo: 0
   PlayerArmyNo: 0
-  TerritorySprite: {fileID: 0}
+  TerritorySprite: {fileID: 519851692}
   ArmyNoTxt: {fileID: 0}
+--- !u!135 &262422709
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262422705}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0.00000017881393, y: 0, z: 0}
 --- !u!1 &324480173
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +851,7 @@ Transform:
   m_GameObject: {fileID: 519851691}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.72225, y: -2.094, z: 0.12816}
+  m_LocalPosition: {x: -1.16, y: -2.094, z: 0.12816}
   m_LocalScale: {x: 1.8709774, y: 1.8709774, z: 1.8709774}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -870,8 +892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.354}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.94, y: -1.25}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchoredPosition: {x: 1.17, y: -1.67}
+  m_SizeDelta: {x: 22.679, y: 6.382}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540459293
 MonoBehaviour:
@@ -920,7 +942,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 57.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1023,6 +1045,7 @@ GameObject:
   - component: {fileID: 552883142}
   - component: {fileID: 552883143}
   - component: {fileID: 552883144}
+  - component: {fileID: 552883145}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -1039,7 +1062,7 @@ Transform:
   m_GameObject: {fileID: 552883141}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.31722766, w: 0.9483495}
-  m_LocalPosition: {x: -0.04, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.11, y: 0.2, z: 0}
   m_LocalScale: {x: 0.20788933, y: 0.20788933, z: 0.20788933}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1089,7 +1112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1c270708f9ce86648875cc0dd6fd4579, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1115,8 +1138,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArmNo: 0
   PlayerArmyNo: 0
-  TerritorySprite: {fileID: 0}
+  TerritorySprite: {fileID: 1880840530}
   ArmyNoTxt: {fileID: 0}
+--- !u!135 &552883145
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552883141}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: -0.00000011920929, y: 0, z: -0.000000029802322}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,6 +1309,7 @@ GameObject:
   - component: {fileID: 1144558605}
   - component: {fileID: 1144558606}
   - component: {fileID: 1144558607}
+  - component: {fileID: 1144558608}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -1331,7 +1376,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1c270708f9ce86648875cc0dd6fd4579, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1357,8 +1402,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArmNo: 0
   PlayerArmyNo: 0
-  TerritorySprite: {fileID: 0}
+  TerritorySprite: {fileID: 1155262267}
   ArmyNoTxt: {fileID: 0}
+--- !u!135 &1144558608
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144558604}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0.000000014901161}
 --- !u!1 &1155262266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,8 +1729,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.354}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.2, y: -1.65}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchoredPosition: {x: 1.04, y: -1.85}
+  m_SizeDelta: {x: 40.255, y: 10.064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1270810113
 MonoBehaviour:
@@ -1713,7 +1779,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1883,7 +1949,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 1c270708f9ce86648875cc0dd6fd4579, type: 3}
-  m_Color: {r: 1, g: 0.9509735, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9490197, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1904,6 +1970,7 @@ GameObject:
   - component: {fileID: 1561803659}
   - component: {fileID: 1561803660}
   - component: {fileID: 1561803661}
+  - component: {fileID: 1561803662}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -1920,8 +1987,8 @@ Transform:
   m_GameObject: {fileID: 1561803658}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.31722766, w: 0.9483495}
-  m_LocalPosition: {x: -0, y: 0.1749, z: 0}
-  m_LocalScale: {x: 0.31724784, y: 0.31724784, z: 0.31724784}
+  m_LocalPosition: {x: 0.135, y: 0.29, z: 0}
+  m_LocalScale: {x: 0.19402876, y: 0.18564671, z: 0.19402876}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1270810112}
@@ -1970,7 +2037,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1c270708f9ce86648875cc0dd6fd4579, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1996,8 +2063,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArmNo: 0
   PlayerArmyNo: 0
-  TerritorySprite: {fileID: 0}
+  TerritorySprite: {fileID: 936025276}
   ArmyNoTxt: {fileID: 0}
+--- !u!135 &1561803662
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561803658}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.00000023841858, z: 0.000000014901161}
 --- !u!1 &1847652129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,7 +2584,7 @@ MonoBehaviour:
   - 0
   - -20
   soldierPrefab: {fileID: -5256217453536563780, guid: 733604550a468fb4c9d795740f525d2c, type: 3}
-  SpreadTime: 0
+  SpreadTime: 0.3
 --- !u!33 &2084822981
 MeshFilter:
   m_ObjectHideFlags: 0
