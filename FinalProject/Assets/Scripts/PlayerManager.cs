@@ -1,6 +1,6 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
 
 public class PlayerManager : MonoBehaviour
@@ -8,22 +8,26 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance;
     private int Army_No;
     [SerializeField] private TextMeshPro Army_No_txt;
+    // [SerializeField] private TMP_Text Army_No_txt; // TextMeshPro และ TextMeshProUGUI
+
     private IEnumerator Ie_fill_army , IeGenerateSoldier;
 
     private Vector3 offset , intialPos;
     [SerializeField] private float nearclip;
     public bool Drag;
     private Camera cam;
-    private Transform enemy;
+
+    public Transform enemy;
+
 
     void Start()
     {
-        Instance = this;
-        Ie_fill_army = FillTheArmy();
-        StartCoroutine(Ie_fill_army);
+       Instance = this; 
+       Ie_fill_army = FillTheArmy();
+       StartCoroutine(Ie_fill_army);
 
-        cam = Camera.main;
-        intialPos = transform.localPosition; 
+       cam = Camera.main;
+       intialPos = transform.localPosition; 
     }
 
     private IEnumerator FillTheArmy()
@@ -36,9 +40,10 @@ public class PlayerManager : MonoBehaviour
             counter++;
             Army_No_txt.text = counter.ToString();
             Army_No = counter;
-
+            
             yield return new WaitForSecondsRealtime(0.5f);
         }
+
     }
 
     // void Update() 
@@ -73,22 +78,17 @@ public class PlayerManager : MonoBehaviour
     // }
     void Update() 
     {
-        // 1. เก็บค่าเมาส์ใส่ตัวแปรไว้ก่อน
         Vector3 currentMousePos = Input.mousePosition;
 
-        // 2. [จุดที่เพิ่ม] เช็กว่าค่าเมาส์เพี้ยน (Infinity) หรือไม่
-        // ถ้าเพี้ยน ให้หยุดทำงานในรอบนี้ทันที เพื่อกัน Error
         if (float.IsInfinity(currentMousePos.x) || float.IsInfinity(currentMousePos.y))
         {
             return; 
         }
-
-        // 3. [จุดที่แก้] เปลี่ยนจาก Input.mousePosition มาใช้ตัวแปร currentMousePos ที่เช็กแล้ว
         Vector3 MousePos = cam.ScreenToWorldPoint(new Vector3(currentMousePos.x, currentMousePos.y, nearclip));
 
         if(Input.GetMouseButtonDown(0))
         {
-            // [จุดที่แก้] ใช้ตัวแปร currentMousePos แทน
+
             Ray ray = cam.ScreenPointToRay(currentMousePos);
 
             if(Physics.Raycast(ray, out var hit))

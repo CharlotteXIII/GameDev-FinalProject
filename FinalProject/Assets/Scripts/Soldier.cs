@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Soldier : Attack
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter(Collider other) 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(other.CompareTag("enemy") && other.gameObject.name == PlayerManager.Instance.enemy.name)
+        {
+           other.GetComponent<Enemy>().UnderAttack(other.GetComponent<Enemy>().ArmyNoTxt); 
+           gameObject.SetActive(false); 
+        }
     }
 }

@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArmNo: 0
+  PlayerArmyNo: 0
   TerritorySprite: {fileID: 0}
   ArmyNoTxt: {fileID: 0}
 --- !u!1 &324480173
@@ -325,7 +326,7 @@ GameObject:
   - component: {fileID: 324480176}
   - component: {fileID: 324480175}
   m_Layer: 0
-  m_Name: Troops_Number
+  m_Name: Enemy_Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,7 +848,7 @@ GameObject:
   - component: {fileID: 540459294}
   - component: {fileID: 540459293}
   m_Layer: 0
-  m_Name: Troops_Number
+  m_Name: Enemy_Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1113,6 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArmNo: 0
+  PlayerArmyNo: 0
   TerritorySprite: {fileID: 0}
   ArmyNoTxt: {fileID: 0}
 --- !u!1 &832575517
@@ -1354,6 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArmNo: 0
+  PlayerArmyNo: 0
   TerritorySprite: {fileID: 0}
   ArmyNoTxt: {fileID: 0}
 --- !u!1 &1155262266
@@ -1442,6 +1445,85 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1144558605}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1162269143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162269146}
+  - component: {fileID: 1162269145}
+  - component: {fileID: 1162269144}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1162269144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162269143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
+--- !u!114 &1162269145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162269143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1162269146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162269143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252832718
@@ -1559,7 +1641,7 @@ GameObject:
   - component: {fileID: 1270810114}
   - component: {fileID: 1270810113}
   m_Layer: 0
-  m_Name: Troops_Number
+  m_Name: Enemy_Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1913,6 +1995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArmNo: 0
+  PlayerArmyNo: 0
   TerritorySprite: {fileID: 0}
   ArmyNoTxt: {fileID: 0}
 --- !u!1 &1847652129
@@ -1927,7 +2010,7 @@ GameObject:
   - component: {fileID: 1847652132}
   - component: {fileID: 1847652131}
   m_Layer: 0
-  m_Name: Troops_Number
+  m_Name: Enemy_Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2369,7 +2452,6 @@ GameObject:
   - component: {fileID: 2084822981}
   - component: {fileID: 2084822983}
   - component: {fileID: 2084822984}
-  - component: {fileID: 2084822985}
   m_Layer: 6
   m_Name: Player_Code
   m_TagString: pointer
@@ -2407,9 +2489,13 @@ MonoBehaviour:
   Army_No_txt: {fileID: 2041161513}
   nearclip: 25
   Drag: 1
+  enemy: {fileID: 0}
   group: []
-  angles: []
-  soldierPrefab: {fileID: -6326630278724765534, guid: 733604550a468fb4c9d795740f525d2c, type: 3}
+  angles:
+  - 20
+  - 0
+  - -20
+  soldierPrefab: {fileID: -5256217453536563780, guid: 733604550a468fb4c9d795740f525d2c, type: 3}
   SpreadTime: 0
 --- !u!33 &2084822981
 MeshFilter:
@@ -2512,25 +2598,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2084822985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084822978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e7ecc1d33714f4797b4a8f1624f119, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Army_No_txt: {fileID: 0}
-  nearclip: 0
-  Drag: 0
-  group: []
-  angles: []
-  soldierPrefab: {fileID: 0}
-  SpreadTime: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2543,3 +2610,4 @@ SceneRoots:
   - {fileID: 1880840531}
   - {fileID: 936025277}
   - {fileID: 519851693}
+  - {fileID: 1162269146}
