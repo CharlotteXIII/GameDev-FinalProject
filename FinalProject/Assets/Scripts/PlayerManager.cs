@@ -6,6 +6,9 @@ using TMPro;
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
+
+    public static bool IsAnyDragging = false; //Check Drag
+
     private int Army_No;
     [SerializeField] private TextMeshPro Army_No_txt;
     // [SerializeField] private TMP_Text Army_No_txt; // TextMeshPro และ TextMeshProUGUI
@@ -46,36 +49,6 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    // void Update() 
-    // {
-    //     Vector3 MousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, nearclip));
-
-    //     if(Input.GetMouseButtonDown(0))
-    //     {
-    //         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-    //         if(Physics.Raycast(ray, out var hit))
-    //         {
-    //             if(hit.collider != null && hit.collider.CompareTag("pointer"))
-    //             {
-    //                 offset = transform.position - MousePos;
-    //                 Drag = true;
-    //             }
-    //         }
-    //     }
-
-    //     if(Drag)
-    //     {
-    //         transform.position = offset + MousePos;
-    //     }
-
-    //     if(Input.GetMouseButtonUp(0))
-    //     {
-    //         Drag = false;
-    //         transform.localPosition = intialPos; //Pointer back to first location
-    //     }
-
-    // }
     void Update() 
     {
         Vector3 currentMousePos = Input.mousePosition;
@@ -85,8 +58,11 @@ public class PlayerManager : MonoBehaviour
             return; 
         }
         Vector3 MousePos = cam.ScreenToWorldPoint(new Vector3(currentMousePos.x, currentMousePos.y, nearclip));
+        
+        //Check Drag
+        if(Input.GetMouseButtonDown(0) && !IsAnyDragging)
 
-        if(Input.GetMouseButtonDown(0))
+        // if(Input.GetMouseButtonDown(0))
         {
 
             Ray ray = cam.ScreenPointToRay(currentMousePos);
@@ -94,9 +70,12 @@ public class PlayerManager : MonoBehaviour
             if(Physics.Raycast(ray, out var hit))
             {
                 if(hit.collider != null && hit.collider.CompareTag("pointer"))
+                // if(hit.transform == transform)
+                // if(hit.collider.CompareTag("pointer") && hit.transform.parent == transform)
                 {
                     offset = transform.position - MousePos;
                     Drag = true;
+                    IsAnyDragging = true; //Check Drag
                 }
             }
         }
@@ -106,9 +85,11 @@ public class PlayerManager : MonoBehaviour
             transform.position = offset + MousePos;
         }
 
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(0) && Drag)
+        // if(Input.GetMouseButtonUp(0))
         {
             Drag = false;
+            IsAnyDragging = false; //Check Drag
             transform.localPosition = intialPos; //Pointer back to first location
             
             if(enemy !=null)

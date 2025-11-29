@@ -6,6 +6,7 @@ TagManager:
   tags:
   - pointer
   - enemy
+  - pointer2
   layers:
   - Default
   - TransparentFX
