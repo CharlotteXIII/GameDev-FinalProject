@@ -88,7 +88,7 @@ public class GameTimer : MonoBehaviour
             }
             else 
             {
-                winText.text = "Draw! (เสมอ)";
+                winText.text = "Draw!";
                 winText.color = Color.white;
             }
         }
