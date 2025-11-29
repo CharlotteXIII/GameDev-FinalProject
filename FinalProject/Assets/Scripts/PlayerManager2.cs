@@ -45,7 +45,7 @@ public class PlayerManager2 : MonoBehaviour
         }
 
     }
-    
+
     void Update() 
     {
         Vector3 currentMousePos = Input.mousePosition;
@@ -56,7 +56,9 @@ public class PlayerManager2 : MonoBehaviour
         }
         Vector3 MousePos = cam.ScreenToWorldPoint(new Vector3(currentMousePos.x, currentMousePos.y, nearclip));
 
-        if(Input.GetMouseButtonDown(0))
+
+        if(Input.GetMouseButtonDown(0) && !PlayerManager.IsAnyDragging)
+        // if(Input.GetMouseButtonDown(0))
         {
 
             Ray ray = cam.ScreenPointToRay(currentMousePos);
@@ -69,6 +71,7 @@ public class PlayerManager2 : MonoBehaviour
                 {
                     offset = transform.position - MousePos;
                     Drag = true;
+                    PlayerManager.IsAnyDragging = true;
                 }
             }
         }
@@ -78,11 +81,13 @@ public class PlayerManager2 : MonoBehaviour
             transform.position = offset + MousePos;
         }
 
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(0) && Drag)
+        // if(Input.GetMouseButtonUp(0))
         {
             Drag = false;
+            PlayerManager.IsAnyDragging = false;
             transform.localPosition = intialPos; //Pointer back to first location
-            
+
             if(enemy !=null)
             {
                 IeGenerateSoldier = GenerateSoldier();
