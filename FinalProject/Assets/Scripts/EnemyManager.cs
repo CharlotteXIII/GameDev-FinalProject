@@ -28,7 +28,7 @@ public abstract class EnemyManager : MonoBehaviour
        {
          // TerritorySprite.color = new Color(0.4f , 0.2f , 0.2f);
 
-         if()
+         // if()
          TerritorySprite.color = new Color(0.35f, 1f, 0f);
          gameObject.GetComponent<SpriteRenderer>().color = new Color(0.45f , 0.95f , 0.7f);
        }
