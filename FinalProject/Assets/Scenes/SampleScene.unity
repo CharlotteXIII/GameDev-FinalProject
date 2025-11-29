@@ -377,7 +377,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 1c270708f9ce86648875cc0dd6fd4579, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.69589806, a: 1}
+  m_Color: {r: 0, g: 0.7372549, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 389927401}
   - component: {fileID: 389927400}
   m_Layer: 6
-  m_Name: Player_Code
+  m_Name: Player_Code2
   m_TagString: pointer2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -815,7 +815,7 @@ MeshRenderer:
   m_RenderingLayerMask: 252
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d05efeb084e90545815c800b1ad28ae, type: 2}
+  - {fileID: 2100000, guid: 1503d5e1847b8b54488083b7db338b7a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1086,6 +1086,7 @@ MonoBehaviour:
   ArmNo: 0
   PlayerArmyNo: 0
   TerritorySprite: {fileID: 1880840530}
+  currentOwner: Neutral
   ArmyNoTxt: {fileID: 0}
 --- !u!135 &552883145
 SphereCollider:
@@ -1350,6 +1351,7 @@ MonoBehaviour:
   ArmNo: 0
   PlayerArmyNo: 0
   TerritorySprite: {fileID: 1155262267}
+  currentOwner: Neutral
   ArmyNoTxt: {fileID: 0}
 --- !u!135 &1144558608
 SphereCollider:
@@ -1817,7 +1819,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 1c270708f9ce86648875cc0dd6fd4579, type: 3}
-  m_Color: {r: 1, g: 0.9490197, b: 0, a: 1}
+  m_Color: {r: 0.34509805, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1932,6 +1934,7 @@ MonoBehaviour:
   ArmNo: 0
   PlayerArmyNo: 0
   TerritorySprite: {fileID: 936025276}
+  currentOwner: Neutral
   ArmyNoTxt: {fileID: 0}
 --- !u!135 &1561803662
 SphereCollider:

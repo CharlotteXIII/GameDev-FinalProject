@@ -127,6 +127,7 @@ public class PlayerManager2 : MonoBehaviour
             for(int i =0; i < soldierToGenerate; i++)
             {
                 var newSoldier = Instantiate(soldierPrefab , transform.position , Quaternion.identity);
+                newSoldier.SetupSoldier("Player2", new Color32(0, 188, 255, 255));
                 group.Add(newSoldier.gameObject);
                 newSoldier.ExecuteOrder(enemy.transform.position , angles[i]);
             }

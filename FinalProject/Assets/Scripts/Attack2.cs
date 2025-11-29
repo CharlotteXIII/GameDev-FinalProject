@@ -9,6 +9,16 @@ public abstract class Attack2 : MonoBehaviour
     private Vector3 _targetPos, _finalPos, _distance;
     private bool SpreadCompleted;
 
+    public string teamName; //Add Team
+    public Color teamColor;
+    public void SetupSoldier(string team, Color color)
+    {
+        teamName = team;
+        teamColor = color;
+        
+        // เปลี่ยนสีตัวทหารให้เป็นสีของทีมทันที
+        GetComponent<SpriteRenderer>().color = color; 
+    }
     private void Update()
     {
         var offsetFinalTarget = Vector3.Distance(_finalPos, transform.position);
@@ -37,7 +47,24 @@ public abstract class Attack2 : MonoBehaviour
         }
 
     }
-
+private void OnTriggerEnter(Collider other) 
+    {
+        // เช็กว่าชนพื้นที่ศัตรู (enemy)
+        if(other.CompareTag("enemy"))
+        {
+            // พยายามดึงสคริปต์ EnemyManager (หรือ Enemy) ออกมา
+            Enemy territory = other.GetComponent<Enemy>();
+            
+            if(territory != null)
+            {
+                // --- [จุดสำคัญ] ส่งชื่อทีมและสีของทหารตัวนี้ ไปให้พื้นที่ ---
+                territory.UnderAttack(territory.ArmyNoTxt, teamName, teamColor); 
+            }
+            
+            // ชนแล้วทหารหายไป
+            gameObject.SetActive(false); 
+        }
+    }
     public void ExecuteOrder(Vector3 target , float angle)
     {
        var direction = Quaternion.Euler(0f, 0f, angle) * (target - transform.position);
