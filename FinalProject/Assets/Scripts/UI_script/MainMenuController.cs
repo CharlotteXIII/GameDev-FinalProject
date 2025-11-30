@@ -5,7 +5,7 @@ public class MainMenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");   // ชื่อ scene เกมของคุณ
+        SceneManager.LoadScene("GameplayScene");   // ชื่อ scene เกมของคุณ
     }
 
     public void HowToPlay()
