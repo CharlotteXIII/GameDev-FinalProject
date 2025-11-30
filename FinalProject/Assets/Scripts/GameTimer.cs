@@ -14,6 +14,7 @@ public class GameTimer : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         timerIsRunning = true;
         
         // ซ่อนหน้าต่างจบเกมตอนเริ่ม
