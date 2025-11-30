@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b26d0a2b9e3e748a919c782ffed720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 30
+  timeRemaining: 60
   timerIsRunning: 0
   timerText: {fileID: 1461365015}
   winPanel: {fileID: 1464539738}

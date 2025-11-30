@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement; // จำเป็นสำหรับกา
 
 public class GameTimer : MonoBehaviour
 {
-    public float timeRemaining = 30f;
+    public float timeRemaining = 60f;
     public bool timerIsRunning = false;
     
     [Header("UI References")]
