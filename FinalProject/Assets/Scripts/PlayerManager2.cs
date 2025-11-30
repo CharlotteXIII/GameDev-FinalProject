@@ -19,6 +19,9 @@ public class PlayerManager2 : MonoBehaviour
 
     public Transform enemy;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip shootClip;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -28,6 +31,7 @@ public class PlayerManager2 : MonoBehaviour
 
        cam = Camera.main;
        intialPos = transform.localPosition; 
+       audioSource = GetComponent<AudioSource>();
     }
 
     private IEnumerator FillTheArmy()
@@ -48,6 +52,7 @@ public class PlayerManager2 : MonoBehaviour
 
     void Update() 
     {
+        if (GameTimer.IsGameOver) return;
         Vector3 currentMousePos = Input.mousePosition;
 
         if (float.IsInfinity(currentMousePos.x) || float.IsInfinity(currentMousePos.y))
@@ -90,6 +95,10 @@ public class PlayerManager2 : MonoBehaviour
 
             if(enemy !=null)
             {
+                if(shootClip != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(shootClip); // เล่นเสียง 1 ครั้ง
+                }
                 IeGenerateSoldier = GenerateSoldier();
                 StartCoroutine(IeGenerateSoldier);
 

@@ -11,9 +11,11 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private TMP_Text timerText;    // ตัวเลขจับเวลา
     [SerializeField] private GameObject winPanel;   // หน้าต่างจบเกม (Panel)
     [SerializeField] private TMP_Text winText;      // ข้อความบอกใครชนะ
+    public static bool IsGameOver = false;
 
     void Start()
     {
+        IsGameOver = false;
         Time.timeScale = 1;
         timerIsRunning = true;
         
@@ -52,6 +54,9 @@ public class GameTimer : MonoBehaviour
     // --- ฟังก์ชันตัดสินผู้ชนะ ---
     void CalculateWinner()
     {
+        IsGameOver = true;
+        AudioListener.pause = true;
+
         // 1. หาพื้นที่ทั้งหมดในฉาก (ต้องติด Tag "enemy" ไว้ที่พื้นที่นะ!)
         GameObject[] allTerritories = GameObject.FindGameObjectsWithTag("enemy");
         
@@ -101,6 +106,8 @@ public class GameTimer : MonoBehaviour
     // --- ฟังก์ชันเริ่มเกมใหม่ (ผูกกับปุ่ม) ---
     public void RestartGame()
     {
+        IsGameOver = false;
+        AudioListener.pause = false;
         Time.timeScale = 1; // อย่าลืมคืนค่าเวลา! ไม่งั้นเริ่มเกมใหม่แล้วทุกอย่างจะนิ่ง
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // โหลดฉากปัจจุบันซ้ำ
     }
