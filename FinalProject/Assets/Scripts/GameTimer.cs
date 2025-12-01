@@ -19,6 +19,8 @@ public class GameTimer : MonoBehaviour
         Time.timeScale = 1;
         timerIsRunning = true;
         
+        AudioListener.pause = false;
+        
         // ซ่อนหน้าต่างจบเกมตอนเริ่ม
         if(winPanel != null) winPanel.SetActive(false);
     }

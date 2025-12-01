@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerManager2 : MonoBehaviour
 {
+    private float startDelay = 0.5f;
     public static PlayerManager2 Instance;
     private int Army_No;
     [SerializeField] private TextMeshPro Army_No_txt;
@@ -53,6 +54,11 @@ public class PlayerManager2 : MonoBehaviour
     void Update() 
     {
         if (GameTimer.IsGameOver) return;
+        if (startDelay > 0)
+        {
+            startDelay -= Time.deltaTime;
+            return; 
+        }
         Vector3 currentMousePos = Input.mousePosition;
 
         if (float.IsInfinity(currentMousePos.x) || float.IsInfinity(currentMousePos.y))

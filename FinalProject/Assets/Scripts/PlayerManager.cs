@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
+    private float startDelay = 0.5f;
     public static PlayerManager Instance;
 
     public static bool IsAnyDragging = false; //Check Drag
@@ -57,7 +58,12 @@ public class PlayerManager : MonoBehaviour
 
     void Update() 
     {   
-        if (GameTimer.IsGameOver) return; 
+        if (GameTimer.IsGameOver) return;
+        if (startDelay > 0)
+        {
+            startDelay -= Time.deltaTime;
+            return; // จบการทำงานรอบนี้ทันที ไม่รับ Input ใดๆ
+        } 
         Vector3 currentMousePos = Input.mousePosition;
 
         if (float.IsInfinity(currentMousePos.x) || float.IsInfinity(currentMousePos.y))
